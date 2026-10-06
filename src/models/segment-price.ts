@@ -13,14 +13,14 @@ export type SegmentPrice = {
 };
 
 export const segmentPriceSchema: Schema<SegmentPrice> = s.object<SegmentPrice>({
-  id: s.optional(s.number()),
-  componentId: s.optional(s.number()),
-  startingQuantity: s.optional(s.number()),
-  endingQuantity: s.optionalNullable(s.number()),
+  id: s.optional(s.int()),
+  componentId: s.optional(s.int()),
+  startingQuantity: s.optional(s.int()),
+  endingQuantity: s.optionalNullable(s.int()),
   unitPrice: s.optional(s.string()),
-  pricePointId: s.optional(s.number()),
+  pricePointId: s.optional(s.int()),
   formattedUnitPrice: s.optional(s.string()),
-  segmentId: s.optional(s.number()),
+  segmentId: s.optional(s.int()),
   _keysMap: {
     componentId: "component_id",
     startingQuantity: "starting_quantity",

@@ -10,10 +10,10 @@ export type ListProformaInvoicesMeta = {
 
 export const listProformaInvoicesMetaSchema: Schema<ListProformaInvoicesMeta> =
   s.object<ListProformaInvoicesMeta>({
-    totalCount: s.optional(s.number()),
-    currentPage: s.optional(s.number()),
-    totalPages: s.optional(s.number()),
-    statusCode: s.optional(s.number()),
+    totalCount: s.optional(s.int()),
+    currentPage: s.optional(s.int()),
+    totalPages: s.optional(s.int()),
+    statusCode: s.optional(s.int()),
     _keysMap: {
       totalCount: "total_count",
       currentPage: "current_page",

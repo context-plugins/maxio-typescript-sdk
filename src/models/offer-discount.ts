@@ -9,7 +9,7 @@ export type OfferDiscount = {
 
 export const offerDiscountSchema: Schema<OfferDiscount> = s.object<OfferDiscount>({
   couponCode: s.optional(s.string()),
-  couponId: s.optional(s.number()),
+  couponId: s.optional(s.int()),
   couponName: s.optional(s.string()),
   _keysMap: {
     couponCode: "coupon_code",

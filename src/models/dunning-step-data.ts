@@ -13,7 +13,7 @@ export type DunningStepData = {
 };
 
 export const dunningStepDataSchema: Schema<DunningStepData> = s.object<DunningStepData>({
-  dayThreshold: s.number(),
+  dayThreshold: s.int(),
   action: s.string(),
   emailBody: s.optionalNullable(s.string()),
   emailSubject: s.optionalNullable(s.string()),

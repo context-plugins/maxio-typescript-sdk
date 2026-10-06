@@ -12,8 +12,8 @@ export type CreditAccountBalanceChanged = {
 export const creditAccountBalanceChangedSchema: Schema<CreditAccountBalanceChanged> =
   s.object<CreditAccountBalanceChanged>({
     reason: s.string(),
-    serviceCreditAccountBalanceInCents: s.number(),
-    serviceCreditBalanceChangeInCents: s.number(),
+    serviceCreditAccountBalanceInCents: s.int(),
+    serviceCreditBalanceChangeInCents: s.int(),
     currencyCode: s.string(),
     atTime: s.dateTime(),
     _keysMap: {

@@ -10,7 +10,7 @@ export type SubscriptionGroupPaymentProfile = {
 
 export const subscriptionGroupPaymentProfileSchema: Schema<SubscriptionGroupPaymentProfile> =
   s.object<SubscriptionGroupPaymentProfile>({
-    id: s.optional(s.number()),
+    id: s.optional(s.int()),
     firstName: s.optional(s.string()),
     lastName: s.optional(s.string()),
     maskedCardNumber: s.optional(s.string()),

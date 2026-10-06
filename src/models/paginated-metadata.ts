@@ -11,10 +11,10 @@ export type PaginatedMetadata = {
 };
 
 export const paginatedMetadataSchema: Schema<PaginatedMetadata> = s.object<PaginatedMetadata>({
-  totalCount: s.optional(s.number()),
-  currentPage: s.optional(s.number()),
-  totalPages: s.optional(s.number()),
-  perPage: s.optional(s.number()),
+  totalCount: s.optional(s.int()),
+  currentPage: s.optional(s.int()),
+  totalPages: s.optional(s.int()),
+  perPage: s.optional(s.int()),
   metadata: s.optional(s.array(s.lazy(() => metadataSchema))),
   _keysMap: {
     totalCount: "total_count",

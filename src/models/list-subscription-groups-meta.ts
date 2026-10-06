@@ -8,8 +8,8 @@ export type ListSubscriptionGroupsMeta = {
 
 export const listSubscriptionGroupsMetaSchema: Schema<ListSubscriptionGroupsMeta> =
   s.object<ListSubscriptionGroupsMeta>({
-    currentPage: s.optional(s.number()),
-    totalCount: s.optional(s.number()),
+    currentPage: s.optional(s.int()),
+    totalCount: s.optional(s.int()),
     _keysMap: {
       currentPage: "current_page",
       totalCount: "total_count",

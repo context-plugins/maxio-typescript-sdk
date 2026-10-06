@@ -12,7 +12,12 @@ export type InvoicePayment = {
   prepayment?: boolean;
   gatewayHandle?: string | null;
   gatewayUsed?: string;
+  /** The transaction ID for the payment as returned from the payment gateway */
   gatewayTransactionId?: string | null;
+  /**
+   * Date reflecting when the payment was received from a customer. Must be in the past. Applicable
+   * only to `external` payments.
+   */
   receivedOn?: string | null;
   uid?: string;
 };
@@ -23,7 +28,7 @@ export const invoicePaymentSchema: Schema<InvoicePayment> = s.object<InvoicePaym
   originalAmount: s.optional(s.string()),
   appliedAmount: s.optional(s.string()),
   paymentMethod: s.optional(s.lazy(() => invoicePaymentMethodSchema)),
-  transactionId: s.optional(s.number()),
+  transactionId: s.optional(s.int()),
   prepayment: s.optional(s.boolean()),
   gatewayHandle: s.optionalNullable(s.string()),
   gatewayUsed: s.optional(s.string()),

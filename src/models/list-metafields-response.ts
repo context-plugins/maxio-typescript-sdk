@@ -11,10 +11,10 @@ export type ListMetafieldsResponse = {
 };
 
 export const listMetafieldsResponseSchema: Schema<ListMetafieldsResponse> = s.object<ListMetafieldsResponse>({
-  totalCount: s.optional(s.number()),
-  currentPage: s.optional(s.number()),
-  totalPages: s.optional(s.number()),
-  perPage: s.optional(s.number()),
+  totalCount: s.optional(s.int()),
+  currentPage: s.optional(s.int()),
+  totalPages: s.optional(s.int()),
+  perPage: s.optional(s.int()),
   metafields: s.optional(s.array(s.lazy(() => metafieldSchema))),
   _keysMap: {
     totalCount: "total_count",

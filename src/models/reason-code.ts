@@ -12,11 +12,11 @@ export type ReasonCode = {
 };
 
 export const reasonCodeSchema: Schema<ReasonCode> = s.object<ReasonCode>({
-  id: s.optional(s.number()),
-  siteId: s.optional(s.number()),
+  id: s.optional(s.int()),
+  siteId: s.optional(s.int()),
   code: s.optional(s.string()),
   description: s.optional(s.string()),
-  position: s.optional(s.number()),
+  position: s.optional(s.int()),
   createdAt: s.optional(s.dateTime()),
   updatedAt: s.optional(s.dateTime()),
   _keysMap: {

@@ -23,11 +23,11 @@ export type ListSubscriptionGroupsItem = {
 export const listSubscriptionGroupsItemSchema: Schema<ListSubscriptionGroupsItem> =
   s.object<ListSubscriptionGroupsItem>({
     uid: s.optional(s.string()),
-    scheme: s.optional(s.number()),
-    customerId: s.optional(s.number()),
-    paymentProfileId: s.optional(s.number()),
-    subscriptionIds: s.optional(s.array(s.number())),
-    primarySubscriptionId: s.optional(s.number()),
+    scheme: s.optional(s.int()),
+    customerId: s.optional(s.int()),
+    paymentProfileId: s.optional(s.int()),
+    subscriptionIds: s.optional(s.array(s.int())),
+    primarySubscriptionId: s.optional(s.int()),
     nextAssessmentAt: s.optional(s.dateTime()),
     state: s.optional(s.string()),
     cancelAtEndOfPeriod: s.optional(s.boolean()),

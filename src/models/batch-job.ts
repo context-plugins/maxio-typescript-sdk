@@ -10,9 +10,9 @@ export type BatchJob = {
 };
 
 export const batchJobSchema: Schema<BatchJob> = s.object<BatchJob>({
-  id: s.optional(s.number()),
+  id: s.optional(s.int()),
   finishedAt: s.optionalNullable(s.dateTime()),
-  rowCount: s.optionalNullable(s.number()),
+  rowCount: s.optionalNullable(s.int()),
   createdAt: s.optionalNullable(s.dateTime()),
   completed: s.optional(s.string()),
   _keysMap: {

@@ -15,16 +15,16 @@ export type SubscriptionGroupItem = {
 };
 
 export const subscriptionGroupItemSchema: Schema<SubscriptionGroupItem> = s.object<SubscriptionGroupItem>({
-  id: s.optional(s.number()),
+  id: s.optional(s.int()),
   reference: s.optionalNullable(s.string()),
-  productId: s.optional(s.number()),
+  productId: s.optional(s.int()),
   productHandle: s.optionalNullable(s.string()),
-  productPricePointId: s.optional(s.number()),
+  productPricePointId: s.optional(s.int()),
   productPricePointHandle: s.optional(s.string()),
   currency: s.optional(s.string()),
   couponCode: s.optionalNullable(s.string()),
-  totalRevenueInCents: s.optional(s.number()),
-  balanceInCents: s.optional(s.number()),
+  totalRevenueInCents: s.optional(s.int()),
+  balanceInCents: s.optional(s.int()),
   _keysMap: {
     productId: "product_id",
     productHandle: "product_handle",

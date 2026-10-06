@@ -9,9 +9,9 @@ export type ReferralCode = {
 };
 
 export const referralCodeSchema: Schema<ReferralCode> = s.object<ReferralCode>({
-  id: s.optional(s.number()),
-  siteId: s.optional(s.number()),
-  subscriptionId: s.optional(s.number()),
+  id: s.optional(s.int()),
+  siteId: s.optional(s.int()),
+  subscriptionId: s.optional(s.int()),
   code: s.optional(s.string()),
   _keysMap: {
     siteId: "site_id",

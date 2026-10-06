@@ -12,10 +12,10 @@ export type DunnerData = {
 
 export const dunnerDataSchema: Schema<DunnerData> = s.object<DunnerData>({
   state: s.string(),
-  subscriptionId: s.number(),
-  revenueAtRiskInCents: s.number(),
+  subscriptionId: s.int(),
+  revenueAtRiskInCents: s.int(),
   createdAt: s.dateTime(),
-  attempts: s.number(),
+  attempts: s.int(),
   lastAttemptedAt: s.dateTime(),
   _keysMap: {
     subscriptionId: "subscription_id",

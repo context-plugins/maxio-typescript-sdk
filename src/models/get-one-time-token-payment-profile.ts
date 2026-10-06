@@ -8,10 +8,15 @@ export type GetOneTimeTokenPaymentProfile = {
   firstName: string;
   lastName: string;
   maskedCardNumber: string;
+  /** The type of card used. */
   cardType: CardType;
   expirationMonth: number;
   expirationYear: number;
   customerId?: string | null;
+  /**
+   * The vault that stores the payment profile with the provided `vault_token`. Use `bogus` for
+   * testing.
+   */
   currentVault: CreditCardVault;
   vaultToken: string;
   billingAddress: string;
@@ -34,8 +39,8 @@ export const getOneTimeTokenPaymentProfileSchema: Schema<GetOneTimeTokenPaymentP
     lastName: s.string(),
     maskedCardNumber: s.string(),
     cardType: cardTypeSchema,
-    expirationMonth: s.number(),
-    expirationYear: s.number(),
+    expirationMonth: s.float64(),
+    expirationYear: s.float64(),
     customerId: s.optionalNullable(s.string()),
     currentVault: creditCardVaultSchema,
     vaultToken: s.string(),
@@ -47,7 +52,7 @@ export const getOneTimeTokenPaymentProfileSchema: Schema<GetOneTimeTokenPaymentP
     billingZip: s.string(),
     paymentType: s.string(),
     disabled: s.boolean(),
-    siteGatewaySettingId: s.number(),
+    siteGatewaySettingId: s.int(),
     customerVaultToken: s.optionalNullable(s.string()),
     gatewayHandle: s.optionalNullable(s.string()),
     _keysMap: {

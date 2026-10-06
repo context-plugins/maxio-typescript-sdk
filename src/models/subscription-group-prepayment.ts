@@ -14,7 +14,7 @@ export type SubscriptionGroupPrepayment = {
 
 export const subscriptionGroupPrepaymentSchema: Schema<SubscriptionGroupPrepayment> =
   s.object<SubscriptionGroupPrepayment>({
-    amount: s.number(),
+    amount: s.int(),
     details: s.string(),
     memo: s.string(),
     method: subscriptionGroupPrepaymentMethodSchema,

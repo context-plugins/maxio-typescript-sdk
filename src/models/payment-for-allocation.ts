@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/** Information for captured payment, if applicable */
 export type PaymentForAllocation = {
   id?: number;
   amountInCents?: number;
@@ -9,8 +10,8 @@ export type PaymentForAllocation = {
 };
 
 export const paymentForAllocationSchema: Schema<PaymentForAllocation> = s.object<PaymentForAllocation>({
-  id: s.optional(s.number()),
-  amountInCents: s.optional(s.number()),
+  id: s.optional(s.int()),
+  amountInCents: s.optional(s.int()),
   success: s.optional(s.boolean()),
   memo: s.optional(s.string()),
   _keysMap: {

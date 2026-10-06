@@ -10,7 +10,7 @@ export type ChjsTokenizationSuccess = {
 export const chjsTokenizationSuccessSchema: Schema<ChjsTokenizationSuccess> =
   s.object<ChjsTokenizationSuccess>({
     paymentProfile: tokenizedPaymentProfileSchema,
-    gatewayCustomerId: s.optionalNullable(s.number()),
+    gatewayCustomerId: s.optionalNullable(s.int()),
     _keysMap: {
       paymentProfile: "payment_profile",
       gatewayCustomerId: "gateway_customer_id",

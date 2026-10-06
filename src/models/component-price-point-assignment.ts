@@ -9,7 +9,7 @@ export type ComponentPricePointAssignment = {
 
 export const componentPricePointAssignmentSchema: Schema<ComponentPricePointAssignment> =
   s.object<ComponentPricePointAssignment>({
-    componentId: s.optional(s.number()),
+    componentId: s.optional(s.int()),
     pricePoint: s.optional(s.lazy(() => pricePoint2Schema)),
     _keysMap: {
       componentId: "component_id",

@@ -4,7 +4,9 @@ import { lineItemKindSchema, type LineItemKind } from "./line-item-kind.js";
 import { lineItemTransactionTypeSchema, type LineItemTransactionType } from "./line-item-transaction-type.js";
 
 export type RenewalPreviewLineItem = {
+  /** A handle for the line item transaction type */
   transactionType?: LineItemTransactionType;
+  /** A handle for the line item kind */
   kind?: LineItemKind;
   amountInCents?: number;
   memo?: string;
@@ -23,13 +25,13 @@ export type RenewalPreviewLineItem = {
 export const renewalPreviewLineItemSchema: Schema<RenewalPreviewLineItem> = s.object<RenewalPreviewLineItem>({
   transactionType: s.optional(s.lazy(() => lineItemTransactionTypeSchema)),
   kind: s.optional(s.lazy(() => lineItemKindSchema)),
-  amountInCents: s.optional(s.number()),
+  amountInCents: s.optional(s.int()),
   memo: s.optional(s.string()),
-  discountAmountInCents: s.optional(s.number()),
-  taxableAmountInCents: s.optional(s.number()),
-  productId: s.optional(s.number()),
+  discountAmountInCents: s.optional(s.int()),
+  taxableAmountInCents: s.optional(s.int()),
+  productId: s.optional(s.int()),
   productName: s.optional(s.string()),
-  componentId: s.optional(s.number()),
+  componentId: s.optional(s.int()),
   componentHandle: s.optional(s.string()),
   componentName: s.optional(s.string()),
   productHandle: s.optional(s.string()),

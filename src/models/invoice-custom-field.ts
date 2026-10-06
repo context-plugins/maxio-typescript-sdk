@@ -11,11 +11,11 @@ export type InvoiceCustomField = {
 };
 
 export const invoiceCustomFieldSchema: Schema<InvoiceCustomField> = s.object<InvoiceCustomField>({
-  ownerId: s.optional(s.number()),
+  ownerId: s.optional(s.int()),
   ownerType: s.optional(s.lazy(() => customFieldOwnerSchema)),
   name: s.optional(s.string()),
   value: s.optional(s.string()),
-  metadatumId: s.optional(s.number()),
+  metadatumId: s.optional(s.int()),
   _keysMap: {
     ownerId: "owner_id",
     ownerType: "owner_type",

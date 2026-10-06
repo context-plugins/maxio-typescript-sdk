@@ -4,23 +4,30 @@ import { serviceCreditTypeSchema, type ServiceCreditType } from "./service-credi
 
 export type ServiceCredit1 = {
   id?: number;
+  /** The amount in cents of the entry */
   amountInCents?: number;
+  /** The new balance for the credit account */
   endingBalanceInCents?: number;
+  /** The type of entry */
   entryType?: ServiceCreditType;
+  /** The memo attached to the entry */
   memo?: string;
+  /** The invoice uid associated with the entry. Only present for debit entries. */
   invoiceUid?: string | null;
+  /** The remaining balance for the entry */
   remainingBalanceInCents?: number;
+  /** The date and time the entry was created */
   createdAt?: Date;
 };
 
 export const serviceCredit1Schema: Schema<ServiceCredit1> = s.object<ServiceCredit1>({
-  id: s.optional(s.number()),
-  amountInCents: s.optional(s.number()),
-  endingBalanceInCents: s.optional(s.number()),
+  id: s.optional(s.int()),
+  amountInCents: s.optional(s.int()),
+  endingBalanceInCents: s.optional(s.int()),
   entryType: s.optional(s.lazy(() => serviceCreditTypeSchema)),
   memo: s.optional(s.string()),
   invoiceUid: s.optionalNullable(s.string()),
-  remainingBalanceInCents: s.optional(s.number()),
+  remainingBalanceInCents: s.optional(s.int()),
   createdAt: s.optional(s.dateTime()),
   _keysMap: {
     amountInCents: "amount_in_cents",

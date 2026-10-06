@@ -22,18 +22,24 @@ export type Site = {
   organizationAddress?: OrganizationAddress;
   taxConfiguration?: TaxConfiguration;
   netTerms?: NetTerms;
+  /**
+   * Whether the site has the multi-frequency billing feature enabled. Only present when
+   * relationship invoicing is active.
+   */
   multiFrequencyEnabled?: boolean;
+  /** Whether the auto-renewals feature is enabled for this site. */
   autoRenewalsEnabled?: boolean;
+  /** Whether the Billing Portal is enabled for this site. */
   portalEnabled?: boolean;
   test?: boolean;
 };
 
 export const siteSchema: Schema<Site> = s.object<Site>({
-  id: s.optional(s.number()),
+  id: s.optional(s.int()),
   name: s.optional(s.string()),
   subdomain: s.optional(s.string()),
   currency: s.optional(s.string()),
-  sellerId: s.optional(s.number()),
+  sellerId: s.optional(s.int()),
   nonPrimaryCurrencies: s.optional(s.array(s.string())),
   relationshipInvoicingEnabled: s.optional(s.boolean()),
   scheduleSubscriptionCancellationEnabled: s.optional(s.boolean()),

@@ -9,10 +9,10 @@ export type CouponCurrency = {
 };
 
 export const couponCurrencySchema: Schema<CouponCurrency> = s.object<CouponCurrency>({
-  id: s.optionalNullable(s.number()),
+  id: s.optionalNullable(s.int()),
   currency: s.optional(s.string()),
-  price: s.optionalNullable(s.number()),
-  couponId: s.optional(s.number()),
+  price: s.optionalNullable(s.float64()),
+  couponId: s.optional(s.int()),
   _keysMap: {
     couponId: "coupon_id",
   },

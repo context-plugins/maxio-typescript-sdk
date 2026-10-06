@@ -12,13 +12,13 @@ export type CreatedPrepayment = {
 };
 
 export const createdPrepaymentSchema: Schema<CreatedPrepayment> = s.object<CreatedPrepayment>({
-  id: s.optional(s.number()),
-  subscriptionId: s.optional(s.number()),
-  amountInCents: s.optional(s.number()),
+  id: s.optional(s.int()),
+  subscriptionId: s.optional(s.int()),
+  amountInCents: s.optional(s.int()),
   memo: s.optional(s.string()),
   createdAt: s.optional(s.dateTime()),
-  startingBalanceInCents: s.optional(s.number()),
-  endingBalanceInCents: s.optional(s.number()),
+  startingBalanceInCents: s.optional(s.int()),
+  endingBalanceInCents: s.optional(s.int()),
   _keysMap: {
     subscriptionId: "subscription_id",
     amountInCents: "amount_in_cents",

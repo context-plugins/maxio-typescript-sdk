@@ -16,14 +16,14 @@ export type BillingManifest = {
 
 export const billingManifestSchema: Schema<BillingManifest> = s.object<BillingManifest>({
   lineItems: s.optional(s.array(s.lazy(() => billingManifestItemSchema))),
-  totalInCents: s.optional(s.number()),
-  totalDiscountInCents: s.optional(s.number()),
-  totalTaxInCents: s.optional(s.number()),
-  subtotalInCents: s.optional(s.number()),
+  totalInCents: s.optional(s.int()),
+  totalDiscountInCents: s.optional(s.int()),
+  totalTaxInCents: s.optional(s.int()),
+  subtotalInCents: s.optional(s.int()),
   startDate: s.optionalNullable(s.dateTime()),
   endDate: s.optionalNullable(s.dateTime()),
   periodType: s.optionalNullable(s.string()),
-  existingBalanceInCents: s.optional(s.number()),
+  existingBalanceInCents: s.optional(s.int()),
   _keysMap: {
     lineItems: "line_items",
     totalInCents: "total_in_cents",

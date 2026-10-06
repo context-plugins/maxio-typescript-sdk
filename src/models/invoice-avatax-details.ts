@@ -10,7 +10,7 @@ export type InvoiceAvataxDetails = {
 };
 
 export const invoiceAvataxDetailsSchema: Schema<InvoiceAvataxDetails> = s.object<InvoiceAvataxDetails>({
-  id: s.optionalNullable(s.number()),
+  id: s.optionalNullable(s.int()),
   status: s.optionalNullable(s.string()),
   documentCode: s.optionalNullable(s.string()),
   commitDate: s.optionalNullable(s.dateTime()),

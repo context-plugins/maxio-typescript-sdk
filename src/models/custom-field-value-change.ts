@@ -14,11 +14,11 @@ export type CustomFieldValueChange = {
 export const customFieldValueChangeSchema: Schema<CustomFieldValueChange> = s.object<CustomFieldValueChange>({
   eventType: s.string(),
   metafieldName: s.string(),
-  metafieldId: s.number(),
+  metafieldId: s.int(),
   oldValue: s.nullable(s.string()),
   newValue: s.nullable(s.string()),
   resourceType: s.string(),
-  resourceId: s.number(),
+  resourceId: s.int(),
   _keysMap: {
     eventType: "event_type",
     metafieldName: "metafield_name",

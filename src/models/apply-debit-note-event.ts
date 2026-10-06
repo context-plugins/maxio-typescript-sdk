@@ -4,22 +4,24 @@ import {
   applyDebitNoteEventDataSchema,
   type ApplyDebitNoteEventData,
 } from "./apply-debit-note-event-data.js";
-import { invoiceEventTypeSchema, type InvoiceEventType } from "./invoice-event-type.js";
+import { InvoiceEventType, invoiceEventTypeSchema } from "./invoice-event-type.js";
 import { invoiceSchema, type Invoice } from "./invoice.js";
 
 export type ApplyDebitNoteEvent = {
   id: number;
   timestamp: Date;
   invoice: Invoice;
-  eventType: InvoiceEventType;
+  /** @default InvoiceEventType.ApplyDebitNote */
+  eventType?: InvoiceEventType;
+  /** Example schema for an `apply_debit_note` event */
   eventData: ApplyDebitNoteEventData;
 };
 
 export const applyDebitNoteEventSchema: Schema<ApplyDebitNoteEvent> = s.object<ApplyDebitNoteEvent>({
-  id: s.number(),
+  id: s.int(),
   timestamp: s.dateTime(),
   invoice: invoiceSchema,
-  eventType: invoiceEventTypeSchema,
+  eventType: s.defaulted(invoiceEventTypeSchema, InvoiceEventType.ApplyDebitNote),
   eventData: applyDebitNoteEventDataSchema,
   _keysMap: {
     eventType: "event_type",

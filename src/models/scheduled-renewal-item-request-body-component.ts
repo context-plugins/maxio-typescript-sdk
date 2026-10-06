@@ -1,24 +1,30 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
+import { itemTypeSchema, type ItemType } from "./item-type.js";
 import {
   scheduledRenewalComponentCustomPriceSchema,
   type ScheduledRenewalComponentCustomPrice,
 } from "./scheduled-renewal-component-custom-price.js";
 
 export type ScheduledRenewalItemRequestBodyComponent = {
-  itemType: "Component";
+  /** Item type to add. Either Product or Component. */
+  itemType: ItemType;
+  /** Product or component identifier. */
   itemId: number;
+  /** Price point identifier. */
   pricePointId?: number;
+  /** (Optional) Quantity for the item. */
   quantity?: number;
+  /** Custom pricing for a component within a scheduled renewal. */
   customPrice?: ScheduledRenewalComponentCustomPrice;
 };
 
 export const scheduledRenewalItemRequestBodyComponentSchema: Schema<ScheduledRenewalItemRequestBodyComponent> =
   s.object<ScheduledRenewalItemRequestBodyComponent>({
-    itemType: s.literal("Component"),
-    itemId: s.number(),
-    pricePointId: s.optional(s.number()),
-    quantity: s.optional(s.number()),
+    itemType: itemTypeSchema,
+    itemId: s.int(),
+    pricePointId: s.optional(s.int()),
+    quantity: s.optional(s.int()),
     customPrice: s.optional(s.lazy(() => scheduledRenewalComponentCustomPriceSchema)),
     _keysMap: {
       itemType: "item_type",

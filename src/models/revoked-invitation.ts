@@ -10,7 +10,7 @@ export type RevokedInvitation = {
 export const revokedInvitationSchema: Schema<RevokedInvitation> = s.object<RevokedInvitation>({
   lastSentAt: s.optional(s.string()),
   lastAcceptedAt: s.optional(s.string()),
-  uninvitedCount: s.optional(s.number()),
+  uninvitedCount: s.optional(s.int()),
   _keysMap: {
     lastSentAt: "last_sent_at",
     lastAcceptedAt: "last_accepted_at",

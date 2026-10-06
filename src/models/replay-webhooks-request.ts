@@ -6,5 +6,5 @@ export type ReplayWebhooksRequest = {
 };
 
 export const replayWebhooksRequestSchema: Schema<ReplayWebhooksRequest> = s.object<ReplayWebhooksRequest>({
-  ids: s.array(s.number()),
+  ids: s.array(s.int()),
 });

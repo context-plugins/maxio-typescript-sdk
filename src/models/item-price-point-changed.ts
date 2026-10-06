@@ -12,7 +12,7 @@ export type ItemPricePointChanged = {
 };
 
 export const itemPricePointChangedSchema: Schema<ItemPricePointChanged> = s.object<ItemPricePointChanged>({
-  itemId: s.number(),
+  itemId: s.int(),
   itemType: s.string(),
   itemHandle: s.string(),
   itemName: s.string(),

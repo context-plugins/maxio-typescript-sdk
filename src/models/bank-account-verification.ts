@@ -8,8 +8,8 @@ export type BankAccountVerification = {
 
 export const bankAccountVerificationSchema: Schema<BankAccountVerification> =
   s.object<BankAccountVerification>({
-    deposit1InCents: s.optional(s.number()),
-    deposit2InCents: s.optional(s.number()),
+    deposit1InCents: s.optional(s.int()),
+    deposit2InCents: s.optional(s.int()),
     _keysMap: {
       deposit1InCents: "deposit_1_in_cents",
       deposit2InCents: "deposit_2_in_cents",

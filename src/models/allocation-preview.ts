@@ -23,23 +23,24 @@ export type AllocationPreview = {
   accrueCharge?: boolean;
   allocations?: AllocationPreviewItem[];
   periodType?: string;
+  /** An integer representing the amount of the subscription's current balance */
   existingBalanceInCents?: number;
 };
 
 export const allocationPreviewSchema: Schema<AllocationPreview> = s.object<AllocationPreview>({
   startDate: s.optional(s.dateTime()),
   endDate: s.optional(s.dateTime()),
-  subtotalInCents: s.optional(s.number()),
-  totalTaxInCents: s.optional(s.number()),
-  totalDiscountInCents: s.optional(s.number()),
-  totalInCents: s.optional(s.number()),
+  subtotalInCents: s.optional(s.int()),
+  totalTaxInCents: s.optional(s.int()),
+  totalDiscountInCents: s.optional(s.int()),
+  totalInCents: s.optional(s.int()),
   direction: s.optional(s.lazy(() => allocationPreviewDirectionSchema)),
   prorationScheme: s.optional(s.string()),
   lineItems: s.optional(s.array(s.lazy(() => allocationPreviewLineItemSchema))),
   accrueCharge: s.optional(s.boolean()),
   allocations: s.optional(s.array(s.lazy(() => allocationPreviewItemSchema))),
   periodType: s.optional(s.string()),
-  existingBalanceInCents: s.optional(s.number()),
+  existingBalanceInCents: s.optional(s.int()),
   _keysMap: {
     startDate: "start_date",
     endDate: "end_date",

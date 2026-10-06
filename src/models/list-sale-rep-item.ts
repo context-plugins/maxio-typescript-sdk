@@ -11,9 +11,9 @@ export type ListSaleRepItem = {
 };
 
 export const listSaleRepItemSchema: Schema<ListSaleRepItem> = s.object<ListSaleRepItem>({
-  id: s.optional(s.number()),
+  id: s.optional(s.int()),
   fullName: s.optional(s.string()),
-  subscriptionsCount: s.optional(s.number()),
+  subscriptionsCount: s.optional(s.int()),
   mrrData: s.optional(
     s.record(
       s.string(),

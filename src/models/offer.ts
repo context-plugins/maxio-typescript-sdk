@@ -27,12 +27,12 @@ export type Offer = {
 };
 
 export const offerSchema: Schema<Offer> = s.object<Offer>({
-  id: s.optional(s.number()),
-  siteId: s.optional(s.number()),
-  productFamilyId: s.optional(s.number()),
-  productId: s.optional(s.number()),
-  productPricePointId: s.optional(s.number()),
-  productRevisableNumber: s.optional(s.number()),
+  id: s.optional(s.int()),
+  siteId: s.optional(s.int()),
+  productFamilyId: s.optional(s.int()),
+  productId: s.optional(s.int()),
+  productPricePointId: s.optional(s.int()),
+  productRevisableNumber: s.optional(s.int()),
   name: s.optional(s.string()),
   handle: s.optional(s.string()),
   description: s.optionalNullable(s.string()),
@@ -44,7 +44,7 @@ export const offerSchema: Schema<Offer> = s.object<Offer>({
   productFamilyName: s.optional(s.string()),
   productName: s.optional(s.string()),
   productPricePointName: s.optional(s.string()),
-  productPriceInCents: s.optional(s.number()),
+  productPriceInCents: s.optional(s.int()),
   offerSignupPages: s.optional(s.array(s.lazy(() => offerSignupPageSchema))),
   _keysMap: {
     siteId: "site_id",

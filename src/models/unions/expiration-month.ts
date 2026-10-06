@@ -4,5 +4,5 @@ import type { Schema } from "../../core/validation/schema.js";
 export type ExpirationMonth = string | number;
 
 export const expirationMonthSchema: Schema<ExpirationMonth> = s.of<ExpirationMonth>(
-  s.union([s.string(), s.number()]),
+  s.union([s.string(), s.int()]),
 );

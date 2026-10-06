@@ -4,6 +4,7 @@ import { mrrMovementSchema, type MrrMovement } from "./mrr-movement.js";
 
 export type MovementLineItem = {
   productId?: number;
+  /** For Product (or "baseline") line items, this field will have a value of `0`. */
   componentId?: number;
   pricePointId?: number;
   name?: string;
@@ -11,18 +12,22 @@ export type MovementLineItem = {
   mrrMovements?: MrrMovement[];
   quantity?: number;
   prevQuantity?: number;
+  /**
+   * When `true`, the line item's MRR value will contribute to the `plan` breakout. When `false`,
+   * the line item contributes to the `usage` breakout.
+   */
   recurring?: boolean;
 };
 
 export const movementLineItemSchema: Schema<MovementLineItem> = s.object<MovementLineItem>({
-  productId: s.optional(s.number()),
-  componentId: s.optional(s.number()),
-  pricePointId: s.optional(s.number()),
+  productId: s.optional(s.int()),
+  componentId: s.optional(s.int()),
+  pricePointId: s.optional(s.int()),
   name: s.optional(s.string()),
-  mrr: s.optional(s.number()),
+  mrr: s.optional(s.int()),
   mrrMovements: s.optional(s.array(s.lazy(() => mrrMovementSchema))),
-  quantity: s.optional(s.number()),
-  prevQuantity: s.optional(s.number()),
+  quantity: s.optional(s.int()),
+  prevQuantity: s.optional(s.int()),
   recurring: s.optional(s.boolean()),
   _keysMap: {
     productId: "product_id",

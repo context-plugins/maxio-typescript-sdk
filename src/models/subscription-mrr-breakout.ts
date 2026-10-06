@@ -8,8 +8,8 @@ export type SubscriptionMrrBreakout = {
 
 export const subscriptionMrrBreakoutSchema: Schema<SubscriptionMrrBreakout> =
   s.object<SubscriptionMrrBreakout>({
-    planAmountInCents: s.number(),
-    usageAmountInCents: s.number(),
+    planAmountInCents: s.int(),
+    usageAmountInCents: s.int(),
     _keysMap: {
       planAmountInCents: "plan_amount_in_cents",
       usageAmountInCents: "usage_amount_in_cents",

@@ -4,16 +4,20 @@ import { serviceCreditTypeSchema, type ServiceCreditType } from "./service-credi
 
 export type ServiceCredit = {
   id?: number;
+  /** The amount in cents of the entry */
   amountInCents?: number;
+  /** The new balance for the credit account */
   endingBalanceInCents?: number;
+  /** The type of entry */
   entryType?: ServiceCreditType;
+  /** The memo attached to the entry */
   memo?: string;
 };
 
 export const serviceCreditSchema: Schema<ServiceCredit> = s.object<ServiceCredit>({
-  id: s.optional(s.number()),
-  amountInCents: s.optional(s.number()),
-  endingBalanceInCents: s.optional(s.number()),
+  id: s.optional(s.int()),
+  amountInCents: s.optional(s.int()),
+  endingBalanceInCents: s.optional(s.int()),
   entryType: s.optional(s.lazy(() => serviceCreditTypeSchema)),
   memo: s.optional(s.string()),
   _keysMap: {

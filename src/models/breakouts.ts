@@ -9,9 +9,9 @@ export type Breakouts = {
 };
 
 export const breakoutsSchema: Schema<Breakouts> = s.object<Breakouts>({
-  planAmountInCents: s.optional(s.number()),
+  planAmountInCents: s.optional(s.int()),
   planAmountFormatted: s.optional(s.string()),
-  usageAmountInCents: s.optional(s.number()),
+  usageAmountInCents: s.optional(s.int()),
   usageAmountFormatted: s.optional(s.string()),
   _keysMap: {
     planAmountInCents: "plan_amount_in_cents",

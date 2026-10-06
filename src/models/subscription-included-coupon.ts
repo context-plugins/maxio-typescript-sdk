@@ -14,11 +14,11 @@ export type SubscriptionIncludedCoupon = {
 export const subscriptionIncludedCouponSchema: Schema<SubscriptionIncludedCoupon> =
   s.object<SubscriptionIncludedCoupon>({
     code: s.optional(s.string()),
-    useCount: s.optional(s.number()),
-    usesAllowed: s.optional(s.number()),
+    useCount: s.optional(s.int()),
+    usesAllowed: s.optional(s.int()),
     expiresAt: s.optionalNullable(s.string()),
     recurring: s.optional(s.boolean()),
-    amountInCents: s.optionalNullable(s.number()),
+    amountInCents: s.optionalNullable(s.int()),
     percentage: s.optionalNullable(s.string()),
     _keysMap: {
       useCount: "use_count",

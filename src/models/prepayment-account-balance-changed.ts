@@ -11,8 +11,8 @@ export type PrepaymentAccountBalanceChanged = {
 export const prepaymentAccountBalanceChangedSchema: Schema<PrepaymentAccountBalanceChanged> =
   s.object<PrepaymentAccountBalanceChanged>({
     reason: s.string(),
-    prepaymentAccountBalanceInCents: s.number(),
-    prepaymentBalanceChangeInCents: s.number(),
+    prepaymentAccountBalanceInCents: s.int(),
+    prepaymentBalanceChangeInCents: s.int(),
     currencyCode: s.string(),
     _keysMap: {
       prepaymentAccountBalanceInCents: "prepayment_account_balance_in_cents",

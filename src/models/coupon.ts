@@ -16,6 +16,10 @@ export type Coupon = {
   productFamilyId?: number;
   productFamilyName?: string | null;
   startDate?: Date;
+  /**
+   * After the given time, this coupon code will be invalid for new signups. Recurring discounts
+   * started before this date will continue to recur even after this date.
+   */
   endDate?: Date | null;
   percentage?: string | null;
   recurring?: boolean;
@@ -24,10 +28,18 @@ export type Coupon = {
   durationInterval?: number | null;
   durationIntervalUnit?: string | null;
   durationIntervalSpan?: string | null;
+  /** If set to true, discount is not limited (credits will carry forward to next billing). */
   allowNegativeBalance?: boolean;
   archivedAt?: Date | null;
   conversionLimit?: string | null;
+  /** A stackable coupon can be combined with other coupons on a Subscription. */
   stackable?: boolean;
+  /**
+   * Applicable only to stackable coupons. For `compound`, Percentage-based discounts will be
+   * calculated against the remaining price, after prior discounts have been calculated. For
+   * `full-price`, Percentage-based discounts will always be calculated against the original item
+   * price, before other discounts are applied.
+   */
   compoundingStrategy?: CompoundingStrategy | null;
   useSiteExchangeRate?: boolean;
   createdAt?: Date;
@@ -37,25 +49,26 @@ export type Coupon = {
   applyOnCancelAtEndOfPeriod?: boolean;
   applyOnSubscriptionExpiration?: boolean;
   couponRestrictions?: CouponRestriction[];
+  /** Returned in read, find, and list endpoints if the query parameter is provided. */
   currencyPrices?: CouponCurrency[];
 };
 
 export const couponSchema: Schema<Coupon> = s.object<Coupon>({
-  id: s.optional(s.number()),
+  id: s.optional(s.int()),
   name: s.optional(s.string()),
   code: s.optional(s.string()),
   description: s.optional(s.string()),
-  amount: s.optionalNullable(s.number()),
-  amountInCents: s.optionalNullable(s.number()),
-  productFamilyId: s.optional(s.number()),
+  amount: s.optionalNullable(s.float64()),
+  amountInCents: s.optionalNullable(s.int()),
+  productFamilyId: s.optional(s.int()),
   productFamilyName: s.optionalNullable(s.string()),
   startDate: s.optional(s.dateTime()),
   endDate: s.optionalNullable(s.dateTime()),
   percentage: s.optionalNullable(s.string()),
   recurring: s.optional(s.boolean()),
   recurringScheme: s.optional(s.lazy(() => recurringSchemeSchema)),
-  durationPeriodCount: s.optionalNullable(s.number()),
-  durationInterval: s.optionalNullable(s.number()),
+  durationPeriodCount: s.optionalNullable(s.int()),
+  durationInterval: s.optionalNullable(s.int()),
   durationIntervalUnit: s.optionalNullable(s.string()),
   durationIntervalSpan: s.optionalNullable(s.string()),
   allowNegativeBalance: s.optional(s.boolean()),

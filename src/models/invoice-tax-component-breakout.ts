@@ -20,7 +20,7 @@ export type InvoiceTaxComponentBreakout = {
 
 export const invoiceTaxComponentBreakoutSchema: Schema<InvoiceTaxComponentBreakout> =
   s.object<InvoiceTaxComponentBreakout>({
-    taxRuleId: s.optional(s.number()),
+    taxRuleId: s.optional(s.int()),
     percentage: s.optional(s.string()),
     countryCode: s.optional(s.string()),
     subdivisionCode: s.optional(s.string()),
@@ -31,7 +31,7 @@ export const invoiceTaxComponentBreakoutSchema: Schema<InvoiceTaxComponentBreako
     taxName: s.optional(s.string()),
     taxType: s.optional(s.string()),
     rateType: s.optional(s.string()),
-    taxAuthorityType: s.optional(s.number()),
+    taxAuthorityType: s.optional(s.int()),
     stateAssignedNo: s.optional(s.string()),
     taxSubType: s.optional(s.string()),
     _keysMap: {

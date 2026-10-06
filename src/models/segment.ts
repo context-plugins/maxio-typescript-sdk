@@ -24,6 +24,11 @@ export type Segment = {
   componentId?: number;
   pricePointId?: number;
   eventBasedBillingMetricId?: number;
+  /**
+   * The identifier for the pricing scheme. See [Product
+   * Components](https://help.chargify.com/products/product-components.html) for an overview of
+   * pricing schemes.
+   */
   pricingScheme?: PricingScheme;
   segmentProperty1Value?: SegmentProperty1Value1;
   segmentProperty2Value?: SegmentProperty2Value1;
@@ -35,10 +40,10 @@ export type Segment = {
 };
 
 export const segmentSchema: Schema<Segment> = s.object<Segment>({
-  id: s.optional(s.number()),
-  componentId: s.optional(s.number()),
-  pricePointId: s.optional(s.number()),
-  eventBasedBillingMetricId: s.optional(s.number()),
+  id: s.optional(s.int()),
+  componentId: s.optional(s.int()),
+  pricePointId: s.optional(s.int()),
+  eventBasedBillingMetricId: s.optional(s.int()),
   pricingScheme: s.optional(s.lazy(() => pricingSchemeSchema)),
   segmentProperty1Value: s.optional(s.lazy(() => segmentProperty1Value1Schema)),
   segmentProperty2Value: s.optional(s.lazy(() => segmentProperty2Value1Schema)),

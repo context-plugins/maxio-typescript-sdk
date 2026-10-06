@@ -9,9 +9,9 @@ export type PrepaidUsageAllocationDetail = {
 
 export const prepaidUsageAllocationDetailSchema: Schema<PrepaidUsageAllocationDetail> =
   s.object<PrepaidUsageAllocationDetail>({
-    allocationId: s.optional(s.number()),
-    chargeId: s.optional(s.number()),
-    usageQuantity: s.optional(s.number()),
+    allocationId: s.optional(s.int()),
+    chargeId: s.optional(s.int()),
+    usageQuantity: s.optional(s.int()),
     _keysMap: {
       allocationId: "allocation_id",
       chargeId: "charge_id",

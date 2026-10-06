@@ -9,10 +9,10 @@ export type MrrMovement = {
 };
 
 export const mrrMovementSchema: Schema<MrrMovement> = s.object<MrrMovement>({
-  amount: s.optional(s.number()),
+  amount: s.optional(s.int()),
   category: s.optional(s.string()),
-  subscriberDelta: s.optional(s.number()),
-  leadDelta: s.optional(s.number()),
+  subscriberDelta: s.optional(s.int()),
+  leadDelta: s.optional(s.int()),
   _keysMap: {
     subscriberDelta: "subscriber_delta",
     leadDelta: "lead_delta",

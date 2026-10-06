@@ -4,23 +4,25 @@ import {
   changeChargebackStatusEventDataSchema,
   type ChangeChargebackStatusEventData,
 } from "./change-chargeback-status-event-data.js";
-import { invoiceEventTypeSchema, type InvoiceEventType } from "./invoice-event-type.js";
+import { InvoiceEventType, invoiceEventTypeSchema } from "./invoice-event-type.js";
 import { invoiceSchema, type Invoice } from "./invoice.js";
 
 export type ChangeChargebackStatusEvent = {
   id: number;
   timestamp: Date;
   invoice: Invoice;
-  eventType: InvoiceEventType;
+  /** @default InvoiceEventType.ChangeChargebackStatus */
+  eventType?: InvoiceEventType;
+  /** Example schema for an `change_chargeback_status` event */
   eventData: ChangeChargebackStatusEventData;
 };
 
 export const changeChargebackStatusEventSchema: Schema<ChangeChargebackStatusEvent> =
   s.object<ChangeChargebackStatusEvent>({
-    id: s.number(),
+    id: s.int(),
     timestamp: s.dateTime(),
     invoice: invoiceSchema,
-    eventType: invoiceEventTypeSchema,
+    eventType: s.defaulted(invoiceEventTypeSchema, InvoiceEventType.ChangeChargebackStatus),
     eventData: changeChargebackStatusEventDataSchema,
     _keysMap: {
       eventType: "event_type",

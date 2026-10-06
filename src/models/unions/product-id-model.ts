@@ -4,5 +4,5 @@ import type { Schema } from "../../core/validation/schema.js";
 export type ProductIdModel = number | string;
 
 export const productIdModelSchema: Schema<ProductIdModel> = s.of<ProductIdModel>(
-  s.union([s.number(), s.string()]),
+  s.union([s.int(), s.string()]),
 );

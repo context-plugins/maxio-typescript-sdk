@@ -13,11 +13,11 @@ export type SaleRepSettings = {
 
 export const saleRepSettingsSchema: Schema<SaleRepSettings> = s.object<SaleRepSettings>({
   customerName: s.optional(s.string()),
-  subscriptionId: s.optional(s.number()),
+  subscriptionId: s.optional(s.int()),
   siteLink: s.optional(s.string()),
   siteName: s.optional(s.string()),
   subscriptionMrr: s.optional(s.string()),
-  salesRepId: s.optional(s.number()),
+  salesRepId: s.optional(s.int()),
   salesRepName: s.optional(s.string()),
   _keysMap: {
     customerName: "customer_name",

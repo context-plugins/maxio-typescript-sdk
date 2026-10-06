@@ -10,7 +10,7 @@ export type ComponentAllocationErrorItem = {
 
 export const componentAllocationErrorItemSchema: Schema<ComponentAllocationErrorItem> =
   s.object<ComponentAllocationErrorItem>({
-    componentId: s.optional(s.number()),
+    componentId: s.optional(s.int()),
     message: s.optional(s.string()),
     kind: s.optional(s.string()),
     on: s.optional(s.string()),

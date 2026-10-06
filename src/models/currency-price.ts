@@ -10,17 +10,18 @@ export type CurrencyPrice = {
   priceId?: number;
   pricePointId?: number;
   productPricePointId?: number;
+  /** Role for the price. */
   role?: CurrencyPriceRole;
 };
 
 export const currencyPriceSchema: Schema<CurrencyPrice> = s.object<CurrencyPrice>({
-  id: s.optional(s.number()),
+  id: s.optional(s.int()),
   currency: s.optional(s.string()),
-  price: s.optional(s.number()),
+  price: s.optional(s.float64()),
   formattedPrice: s.optional(s.string()),
-  priceId: s.optional(s.number()),
-  pricePointId: s.optional(s.number()),
-  productPricePointId: s.optional(s.number()),
+  priceId: s.optional(s.int()),
+  pricePointId: s.optional(s.int()),
+  productPricePointId: s.optional(s.int()),
   role: s.optional(s.lazy(() => currencyPriceRoleSchema)),
   _keysMap: {
     formattedPrice: "formatted_price",

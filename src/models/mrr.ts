@@ -8,11 +8,12 @@ export type Mrr = {
   currency?: string;
   currencySymbol?: string;
   breakouts?: Breakouts;
+  /** ISO8601 timestamp */
   atTime?: Date;
 };
 
 export const mrrSchema: Schema<Mrr> = s.object<Mrr>({
-  amountInCents: s.optional(s.number()),
+  amountInCents: s.optional(s.int()),
   amountFormatted: s.optional(s.string()),
   currency: s.optional(s.string()),
   currencySymbol: s.optional(s.string()),

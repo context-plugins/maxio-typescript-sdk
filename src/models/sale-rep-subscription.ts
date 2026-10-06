@@ -15,7 +15,7 @@ export type SaleRepSubscription = {
 };
 
 export const saleRepSubscriptionSchema: Schema<SaleRepSubscription> = s.object<SaleRepSubscription>({
-  id: s.optional(s.number()),
+  id: s.optional(s.int()),
   siteName: s.optional(s.string()),
   subscriptionUrl: s.optional(s.string()),
   customerName: s.optional(s.string()),

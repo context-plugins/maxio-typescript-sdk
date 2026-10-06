@@ -15,15 +15,15 @@ export type Usage = {
 };
 
 export const usageSchema: Schema<Usage> = s.object<Usage>({
-  id: s.optional(s.number()),
+  id: s.optional(s.int()),
   memo: s.optionalNullable(s.string()),
   createdAt: s.optional(s.dateTime()),
-  pricePointId: s.optional(s.number()),
+  pricePointId: s.optional(s.int()),
   quantity: s.optional(s.lazy(() => quantity1Schema)),
-  overageQuantity: s.optional(s.number()),
-  componentId: s.optional(s.number()),
+  overageQuantity: s.optional(s.int()),
+  componentId: s.optional(s.int()),
   componentHandle: s.optional(s.string()),
-  subscriptionId: s.optional(s.number()),
+  subscriptionId: s.optional(s.int()),
   _keysMap: {
     createdAt: "created_at",
     pricePointId: "price_point_id",

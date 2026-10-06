@@ -11,16 +11,17 @@ export type Prepayment = {
   details?: string;
   external: boolean;
   memo: string;
+  /** The payment type of the prepayment. */
   paymentType?: PrepaymentMethod;
   createdAt: Date;
 };
 
 export const prepaymentSchema: Schema<Prepayment> = s.object<Prepayment>({
-  id: s.number(),
-  subscriptionId: s.number(),
-  amountInCents: s.number(),
-  remainingAmountInCents: s.number(),
-  refundedAmountInCents: s.optional(s.number()),
+  id: s.int(),
+  subscriptionId: s.int(),
+  amountInCents: s.int(),
+  remainingAmountInCents: s.int(),
+  refundedAmountInCents: s.optional(s.int()),
   details: s.optional(s.string()),
   external: s.boolean(),
   memo: s.string(),

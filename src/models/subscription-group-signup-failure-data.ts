@@ -27,9 +27,9 @@ export type SubscriptionGroupSignupFailureData = {
 
 export const subscriptionGroupSignupFailureDataSchema: Schema<SubscriptionGroupSignupFailureData> =
   s.object<SubscriptionGroupSignupFailureData>({
-    payerId: s.optional(s.number()),
+    payerId: s.optional(s.int()),
     payerReference: s.optional(s.string()),
-    paymentProfileId: s.optional(s.number()),
+    paymentProfileId: s.optional(s.int()),
     paymentCollectionMethod: s.optional(s.string()),
     payerAttributes: s.optional(s.lazy(() => payerAttributesSchema)),
     creditCardAttributes: s.optional(s.lazy(() => subscriptionGroupCreditCardSchema)),

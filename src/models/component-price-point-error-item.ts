@@ -9,9 +9,9 @@ export type ComponentPricePointErrorItem = {
 
 export const componentPricePointErrorItemSchema: Schema<ComponentPricePointErrorItem> =
   s.object<ComponentPricePointErrorItem>({
-    componentId: s.optional(s.number()),
+    componentId: s.optional(s.int()),
     message: s.optional(s.string()),
-    pricePoint: s.optional(s.number()),
+    pricePoint: s.optional(s.int()),
     _keysMap: {
       componentId: "component_id",
       pricePoint: "price_point",

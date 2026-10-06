@@ -13,7 +13,7 @@ export type SiteSummary = {
 export const siteSummarySchema: Schema<SiteSummary> = s.object<SiteSummary>({
   sellerName: s.optional(s.string()),
   siteName: s.optional(s.string()),
-  siteId: s.optional(s.number()),
+  siteId: s.optional(s.int()),
   siteCurrency: s.optional(s.string()),
   stats: s.optional(s.lazy(() => siteStatisticsSchema)),
   _keysMap: {

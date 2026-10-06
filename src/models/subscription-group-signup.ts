@@ -19,6 +19,11 @@ export type SubscriptionGroupSignup = {
   paymentProfileId?: number;
   payerId?: number;
   payerReference?: string;
+  /**
+   * The type of payment collection to be used in the subscription. For legacy Statements
+   * Architecture valid options are - `invoice`, `automatic`. For current Relationship Invoicing
+   * Architecture valid options are - `remittance`, `automatic`, `prepaid`.
+   */
   paymentCollectionMethod?: CollectionMethod;
   payerAttributes?: PayerAttributes;
   creditCardAttributes?: SubscriptionGroupCreditCard;
@@ -28,8 +33,8 @@ export type SubscriptionGroupSignup = {
 
 export const subscriptionGroupSignupSchema: Schema<SubscriptionGroupSignup> =
   s.object<SubscriptionGroupSignup>({
-    paymentProfileId: s.optional(s.number()),
-    payerId: s.optional(s.number()),
+    paymentProfileId: s.optional(s.int()),
+    payerId: s.optional(s.int()),
     payerReference: s.optional(s.string()),
     paymentCollectionMethod: s.optional(s.lazy(() => collectionMethodSchema)),
     payerAttributes: s.optional(s.lazy(() => payerAttributesSchema)),

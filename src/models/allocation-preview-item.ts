@@ -12,13 +12,36 @@ export type AllocationPreviewItem = {
   previousQuantity?: PreviousQuantity1;
   memo?: string | null;
   timestamp?: string | null;
+  /**
+   * @deprecated
+   */
   prorationUpgradeScheme?: string;
+  /**
+   * @deprecated
+   */
   prorationDowngradeScheme?: string;
   accrueCharge?: boolean;
+  /**
+   * The type of credit to be created when upgrading/downgrading. Defaults to the component and then
+   * site setting if one is not provided.
+   */
   upgradeCharge?: CreditType | null;
+  /**
+   * The type of credit to be created when upgrading/downgrading. Defaults to the component and then
+   * site setting if one is not provided.
+   */
   downgradeCredit?: CreditType | null;
   pricePointId?: number;
+  /**
+   * The numerical interval. e.g., an interval of ‘30’ coupled with an interval_unit of day would
+   * mean this component price point would renew every 30 days. This property is only available for
+   * sites with Multifrequency enabled.
+   */
   interval?: number;
+  /**
+   * A string representing the interval unit for this component price point, either month or day.
+   * This property is only available for sites with Multifrequency enabled.
+   */
   intervalUnit?: IntervalUnit | null;
   previousPricePointId?: number;
   pricePointHandle?: string;
@@ -27,8 +50,8 @@ export type AllocationPreviewItem = {
 };
 
 export const allocationPreviewItemSchema: Schema<AllocationPreviewItem> = s.object<AllocationPreviewItem>({
-  componentId: s.optional(s.number()),
-  subscriptionId: s.optional(s.number()),
+  componentId: s.optional(s.int()),
+  subscriptionId: s.optional(s.int()),
   quantity: s.optional(s.lazy(() => quantity1Schema)),
   previousQuantity: s.optional(s.lazy(() => previousQuantity1Schema)),
   memo: s.optionalNullable(s.string()),
@@ -38,10 +61,10 @@ export const allocationPreviewItemSchema: Schema<AllocationPreviewItem> = s.obje
   accrueCharge: s.optional(s.boolean()),
   upgradeCharge: s.optionalNullable(s.lazy(() => creditTypeSchema)),
   downgradeCredit: s.optionalNullable(s.lazy(() => creditTypeSchema)),
-  pricePointId: s.optional(s.number()),
-  interval: s.optional(s.number()),
+  pricePointId: s.optional(s.int()),
+  interval: s.optional(s.int()),
   intervalUnit: s.optionalNullable(s.lazy(() => intervalUnitSchema)),
-  previousPricePointId: s.optional(s.number()),
+  previousPricePointId: s.optional(s.int()),
   pricePointHandle: s.optional(s.string()),
   pricePointName: s.optional(s.string()),
   componentHandle: s.optionalNullable(s.string()),

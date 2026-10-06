@@ -11,7 +11,7 @@ export type OfferSignupPage = {
 };
 
 export const offerSignupPageSchema: Schema<OfferSignupPage> = s.object<OfferSignupPage>({
-  id: s.optional(s.number()),
+  id: s.optional(s.int()),
   nickname: s.optional(s.string()),
   enabled: s.optional(s.boolean()),
   returnUrl: s.optional(s.string()),

@@ -4,22 +4,24 @@ import {
   applyCreditNoteEventDataSchema,
   type ApplyCreditNoteEventData,
 } from "./apply-credit-note-event-data.js";
-import { invoiceEventTypeSchema, type InvoiceEventType } from "./invoice-event-type.js";
+import { InvoiceEventType, invoiceEventTypeSchema } from "./invoice-event-type.js";
 import { invoiceSchema, type Invoice } from "./invoice.js";
 
 export type ApplyCreditNoteEvent = {
   id: number;
   timestamp: Date;
   invoice: Invoice;
-  eventType: InvoiceEventType;
+  /** @default InvoiceEventType.ApplyCreditNote */
+  eventType?: InvoiceEventType;
+  /** Example schema for an `apply_credit_note` event */
   eventData: ApplyCreditNoteEventData;
 };
 
 export const applyCreditNoteEventSchema: Schema<ApplyCreditNoteEvent> = s.object<ApplyCreditNoteEvent>({
-  id: s.number(),
+  id: s.int(),
   timestamp: s.dateTime(),
   invoice: invoiceSchema,
-  eventType: invoiceEventTypeSchema,
+  eventType: s.defaulted(invoiceEventTypeSchema, InvoiceEventType.ApplyCreditNote),
   eventData: applyCreditNoteEventDataSchema,
   _keysMap: {
     eventType: "event_type",

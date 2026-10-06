@@ -10,9 +10,9 @@ export type Endpoint = {
 };
 
 export const endpointSchema: Schema<Endpoint> = s.object<Endpoint>({
-  id: s.optional(s.number()),
+  id: s.optional(s.int()),
   url: s.optional(s.string()),
-  siteId: s.optional(s.number()),
+  siteId: s.optional(s.int()),
   status: s.optional(s.string()),
   webhookSubscriptions: s.optional(s.array(s.string())),
   _keysMap: {

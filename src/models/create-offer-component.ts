@@ -8,9 +8,9 @@ export type CreateOfferComponent = {
 };
 
 export const createOfferComponentSchema: Schema<CreateOfferComponent> = s.object<CreateOfferComponent>({
-  componentId: s.optional(s.number()),
-  pricePointId: s.optional(s.number()),
-  startingQuantity: s.optional(s.number()),
+  componentId: s.optional(s.int()),
+  pricePointId: s.optional(s.int()),
+  startingQuantity: s.optional(s.int()),
   _keysMap: {
     componentId: "component_id",
     pricePointId: "price_point_id",

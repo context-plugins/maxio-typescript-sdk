@@ -7,8 +7,8 @@ export type PaymentRelatedEvents = {
 };
 
 export const paymentRelatedEventsSchema: Schema<PaymentRelatedEvents> = s.object<PaymentRelatedEvents>({
-  productId: s.number(),
-  accountTransactionId: s.number(),
+  productId: s.int(),
+  accountTransactionId: s.int(),
   _keysMap: {
     productId: "product_id",
     accountTransactionId: "account_transaction_id",

@@ -7,8 +7,11 @@ import {
 } from "./scheduled-renewal-configuration-item.js";
 
 export type ScheduledRenewalConfiguration = {
+  /** ID of the renewal. */
   id?: number;
+  /** ID of the site to which the renewal belongs. */
   siteId?: number;
+  /** The id of the subscription. */
   subscriptionId?: number;
   startsAt?: Date;
   endsAt?: Date;
@@ -16,14 +19,15 @@ export type ScheduledRenewalConfiguration = {
   createdAt?: Date;
   status?: string;
   scheduledRenewalConfigurationItems?: ScheduledRenewalConfigurationItem[];
+  /** Contract linked to the scheduled renewal configuration. */
   contract?: Contract;
 };
 
 export const scheduledRenewalConfigurationSchema: Schema<ScheduledRenewalConfiguration> =
   s.object<ScheduledRenewalConfiguration>({
-    id: s.optional(s.number()),
-    siteId: s.optional(s.number()),
-    subscriptionId: s.optional(s.number()),
+    id: s.optional(s.int()),
+    siteId: s.optional(s.int()),
+    subscriptionId: s.optional(s.int()),
     startsAt: s.optional(s.dateTime()),
     endsAt: s.optional(s.dateTime()),
     lockInAt: s.optional(s.dateTime()),

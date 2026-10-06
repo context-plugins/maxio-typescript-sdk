@@ -12,7 +12,7 @@ export type PortalManagementLink = {
 
 export const portalManagementLinkSchema: Schema<PortalManagementLink> = s.object<PortalManagementLink>({
   url: s.optional(s.string()),
-  fetchCount: s.optional(s.number()),
+  fetchCount: s.optional(s.int()),
   createdAt: s.optional(s.dateTime()),
   newLinkAvailableAt: s.optional(s.dateTime()),
   expiresAt: s.optional(s.dateTime()),

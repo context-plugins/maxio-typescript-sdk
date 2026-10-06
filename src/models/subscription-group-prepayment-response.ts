@@ -4,17 +4,21 @@ import { serviceCreditTypeSchema, type ServiceCreditType } from "./service-credi
 
 export type SubscriptionGroupPrepaymentResponse = {
   id?: number;
+  /** The amount in cents of the entry. */
   amountInCents?: number;
+  /** The ending balance in cents of the account. */
   endingBalanceInCents?: number;
+  /** The type of entry */
   entryType?: ServiceCreditType;
+  /** A memo attached to the entry. */
   memo?: string | null;
 };
 
 export const subscriptionGroupPrepaymentResponseSchema: Schema<SubscriptionGroupPrepaymentResponse> =
   s.object<SubscriptionGroupPrepaymentResponse>({
-    id: s.optional(s.number()),
-    amountInCents: s.optional(s.number()),
-    endingBalanceInCents: s.optional(s.number()),
+    id: s.optional(s.int()),
+    amountInCents: s.optional(s.int()),
+    endingBalanceInCents: s.optional(s.int()),
     entryType: s.optional(s.lazy(() => serviceCreditTypeSchema)),
     memo: s.optionalNullable(s.string()),
     _keysMap: {

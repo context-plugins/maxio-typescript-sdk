@@ -13,10 +13,10 @@ export type ListMrrResponseResult = {
 };
 
 export const listMrrResponseResultSchema: Schema<ListMrrResponseResult> = s.object<ListMrrResponseResult>({
-  page: s.optional(s.number()),
-  perPage: s.optional(s.number()),
-  totalPages: s.optional(s.number()),
-  totalEntries: s.optional(s.number()),
+  page: s.optional(s.int()),
+  perPage: s.optional(s.int()),
+  totalPages: s.optional(s.int()),
+  totalEntries: s.optional(s.int()),
   currency: s.optional(s.string()),
   currencySymbol: s.optional(s.string()),
   movements: s.optional(s.array(s.lazy(() => movementSchema))),

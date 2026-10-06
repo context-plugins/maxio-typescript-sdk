@@ -11,7 +11,7 @@ export type InvoicePayer = {
 };
 
 export const invoicePayerSchema: Schema<InvoicePayer> = s.object<InvoicePayer>({
-  chargifyId: s.optional(s.number()),
+  chargifyId: s.optional(s.int()),
   firstName: s.optional(s.string()),
   lastName: s.optional(s.string()),
   organization: s.optionalNullable(s.string()),

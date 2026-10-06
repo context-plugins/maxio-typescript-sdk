@@ -7,7 +7,7 @@ export type UpdateSubscriptionGroup = {
 
 export const updateSubscriptionGroupSchema: Schema<UpdateSubscriptionGroup> =
   s.object<UpdateSubscriptionGroup>({
-    memberIds: s.optional(s.array(s.number())),
+    memberIds: s.optional(s.array(s.int())),
     _keysMap: {
       memberIds: "member_ids",
     },

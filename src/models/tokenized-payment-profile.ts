@@ -10,7 +10,7 @@ export type TokenizedPaymentProfile = {
 
 export const tokenizedPaymentProfileSchema: Schema<TokenizedPaymentProfile> =
   s.object<TokenizedPaymentProfile>({
-    id: s.number(),
+    id: s.int(),
     vaultToken: s.optional(s.string()),
     gatewayHandle: s.optionalNullable(s.string()),
     customerVaultToken: s.optionalNullable(s.string()),

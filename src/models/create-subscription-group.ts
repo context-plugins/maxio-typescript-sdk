@@ -8,8 +8,8 @@ export type CreateSubscriptionGroup = {
 
 export const createSubscriptionGroupSchema: Schema<CreateSubscriptionGroup> =
   s.object<CreateSubscriptionGroup>({
-    subscriptionId: s.number(),
-    memberIds: s.optional(s.array(s.number())),
+    subscriptionId: s.int(),
+    memberIds: s.optional(s.array(s.int())),
     _keysMap: {
       subscriptionId: "subscription_id",
       memberIds: "member_ids",

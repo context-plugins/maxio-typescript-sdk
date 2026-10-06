@@ -8,7 +8,7 @@ export type ItemPricePointData = {
 };
 
 export const itemPricePointDataSchema: Schema<ItemPricePointData> = s.object<ItemPricePointData>({
-  id: s.optional(s.number()),
+  id: s.optional(s.int()),
   handle: s.optional(s.string()),
   name: s.optional(s.string()),
 });

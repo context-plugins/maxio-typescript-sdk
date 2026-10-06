@@ -11,8 +11,8 @@ export type ComponentCostDataRateTier = {
 
 export const componentCostDataRateTierSchema: Schema<ComponentCostDataRateTier> =
   s.object<ComponentCostDataRateTier>({
-    startingQuantity: s.optional(s.number()),
-    endingQuantity: s.optionalNullable(s.number()),
+    startingQuantity: s.optional(s.int()),
+    endingQuantity: s.optionalNullable(s.int()),
     quantity: s.optional(s.string()),
     unitPrice: s.optional(s.string()),
     amount: s.optional(s.string()),

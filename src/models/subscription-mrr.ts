@@ -9,8 +9,8 @@ export type SubscriptionMrr = {
 };
 
 export const subscriptionMrrSchema: Schema<SubscriptionMrr> = s.object<SubscriptionMrr>({
-  subscriptionId: s.number(),
-  mrrAmountInCents: s.number(),
+  subscriptionId: s.int(),
+  mrrAmountInCents: s.int(),
   breakouts: s.optional(s.lazy(() => subscriptionMrrBreakoutSchema)),
   _keysMap: {
     subscriptionId: "subscription_id",

@@ -16,17 +16,17 @@ export type SiteStatistics = {
 };
 
 export const siteStatisticsSchema: Schema<SiteStatistics> = s.object<SiteStatistics>({
-  totalSubscriptions: s.optional(s.number()),
-  subscriptionsToday: s.optional(s.number()),
+  totalSubscriptions: s.optional(s.int()),
+  subscriptionsToday: s.optional(s.int()),
   totalRevenue: s.optional(s.string()),
   revenueToday: s.optional(s.string()),
   revenueThisMonth: s.optional(s.string()),
   revenueThisYear: s.optional(s.string()),
-  totalCanceledSubscriptions: s.optional(s.number()),
-  totalActiveSubscriptions: s.optional(s.number()),
-  totalPastDueSubscriptions: s.optional(s.number()),
-  totalUnpaidSubscriptions: s.optional(s.number()),
-  totalDunningSubscriptions: s.optional(s.number()),
+  totalCanceledSubscriptions: s.optional(s.int()),
+  totalActiveSubscriptions: s.optional(s.int()),
+  totalPastDueSubscriptions: s.optional(s.int()),
+  totalUnpaidSubscriptions: s.optional(s.int()),
+  totalDunningSubscriptions: s.optional(s.int()),
   _keysMap: {
     totalSubscriptions: "total_subscriptions",
     subscriptionsToday: "subscriptions_today",

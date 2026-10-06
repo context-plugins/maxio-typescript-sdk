@@ -11,9 +11,9 @@ export type CouponRestriction = {
 };
 
 export const couponRestrictionSchema: Schema<CouponRestriction> = s.object<CouponRestriction>({
-  id: s.optional(s.number()),
+  id: s.optional(s.int()),
   itemType: s.optional(s.lazy(() => restrictionTypeSchema)),
-  itemId: s.optional(s.number()),
+  itemId: s.optional(s.int()),
   name: s.optional(s.string()),
   handle: s.optionalNullable(s.string()),
   _keysMap: {

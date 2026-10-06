@@ -11,12 +11,12 @@ export type ComponentCurrencyPrice = {
 };
 
 export const componentCurrencyPriceSchema: Schema<ComponentCurrencyPrice> = s.object<ComponentCurrencyPrice>({
-  id: s.optional(s.number()),
+  id: s.optional(s.int()),
   currency: s.optional(s.string()),
   price: s.optional(s.string()),
   formattedPrice: s.optional(s.string()),
-  priceId: s.optional(s.number()),
-  pricePointId: s.optional(s.number()),
+  priceId: s.optional(s.int()),
+  pricePointId: s.optional(s.int()),
   _keysMap: {
     formattedPrice: "formatted_price",
     priceId: "price_id",

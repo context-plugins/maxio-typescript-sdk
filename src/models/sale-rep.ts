@@ -11,9 +11,9 @@ export type SaleRep = {
 };
 
 export const saleRepSchema: Schema<SaleRep> = s.object<SaleRep>({
-  id: s.optional(s.number()),
+  id: s.optional(s.int()),
   fullName: s.optional(s.string()),
-  subscriptionsCount: s.optional(s.number()),
+  subscriptionsCount: s.optional(s.int()),
   testMode: s.optional(s.boolean()),
   subscriptions: s.optional(s.array(s.lazy(() => saleRepSubscriptionSchema))),
   _keysMap: {

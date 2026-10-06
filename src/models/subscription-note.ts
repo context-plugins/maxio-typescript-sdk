@@ -11,9 +11,9 @@ export type SubscriptionNote = {
 };
 
 export const subscriptionNoteSchema: Schema<SubscriptionNote> = s.object<SubscriptionNote>({
-  id: s.optional(s.number()),
+  id: s.optional(s.int()),
   body: s.optional(s.string()),
-  subscriptionId: s.optional(s.number()),
+  subscriptionId: s.optional(s.int()),
   createdAt: s.optional(s.dateTime()),
   updatedAt: s.optional(s.dateTime()),
   sticky: s.optional(s.boolean()),

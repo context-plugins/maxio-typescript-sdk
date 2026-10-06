@@ -14,12 +14,12 @@ export type ComponentAllocationChange = {
 
 export const componentAllocationChangeSchema: Schema<ComponentAllocationChange> =
   s.object<ComponentAllocationChange>({
-    previousAllocation: s.number(),
-    newAllocation: s.number(),
-    componentId: s.number(),
+    previousAllocation: s.int(),
+    newAllocation: s.int(),
+    componentId: s.int(),
     componentHandle: s.string(),
     memo: s.string(),
-    allocationId: s.number(),
+    allocationId: s.int(),
     allocatedQuantity: s.optional(s.lazy(() => allocatedQuantitySchema)),
     _keysMap: {
       previousAllocation: "previous_allocation",

@@ -16,10 +16,10 @@ export type ListSubscriptionGroupPrepaymentItem = {
 
 export const listSubscriptionGroupPrepaymentItemSchema: Schema<ListSubscriptionGroupPrepaymentItem> =
   s.object<ListSubscriptionGroupPrepaymentItem>({
-    id: s.optional(s.number()),
+    id: s.optional(s.int()),
     subscriptionGroupUid: s.optional(s.string()),
-    amountInCents: s.optional(s.number()),
-    remainingAmountInCents: s.optional(s.number()),
+    amountInCents: s.optional(s.int()),
+    remainingAmountInCents: s.optional(s.int()),
     details: s.optional(s.string()),
     external: s.optional(s.boolean()),
     memo: s.optional(s.string()),

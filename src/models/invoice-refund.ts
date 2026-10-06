@@ -7,6 +7,7 @@ export type InvoiceRefund = {
   memo?: string;
   originalAmount?: string;
   appliedAmount?: string;
+  /** The transaction ID for the refund as returned from the payment gateway */
   gatewayTransactionId?: string | null;
   gatewayUsed?: string;
   gatewayHandle?: string | null;
@@ -14,8 +15,8 @@ export type InvoiceRefund = {
 };
 
 export const invoiceRefundSchema: Schema<InvoiceRefund> = s.object<InvoiceRefund>({
-  transactionId: s.optional(s.number()),
-  paymentId: s.optional(s.number()),
+  transactionId: s.optional(s.int()),
+  paymentId: s.optional(s.int()),
   memo: s.optional(s.string()),
   originalAmount: s.optional(s.string()),
   appliedAmount: s.optional(s.string()),

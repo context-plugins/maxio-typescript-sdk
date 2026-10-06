@@ -10,11 +10,11 @@ export type PrepaidConfiguration = {
 };
 
 export const prepaidConfigurationSchema: Schema<PrepaidConfiguration> = s.object<PrepaidConfiguration>({
-  id: s.optional(s.number()),
-  initialFundingAmountInCents: s.optional(s.number()),
-  replenishToAmountInCents: s.optional(s.number()),
+  id: s.optional(s.int()),
+  initialFundingAmountInCents: s.optional(s.int()),
+  replenishToAmountInCents: s.optional(s.int()),
   autoReplenish: s.optional(s.boolean()),
-  replenishThresholdAmountInCents: s.optional(s.number()),
+  replenishThresholdAmountInCents: s.optional(s.int()),
   _keysMap: {
     initialFundingAmountInCents: "initial_funding_amount_in_cents",
     replenishToAmountInCents: "replenish_to_amount_in_cents",

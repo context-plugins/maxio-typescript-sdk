@@ -6,5 +6,5 @@ export type CountResponse = {
 };
 
 export const countResponseSchema: Schema<CountResponse> = s.object<CountResponse>({
-  count: s.optional(s.number()),
+  count: s.optional(s.int()),
 });

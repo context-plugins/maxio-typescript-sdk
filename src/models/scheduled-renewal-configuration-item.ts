@@ -17,15 +17,15 @@ export type ScheduledRenewalConfigurationItem = {
 
 export const scheduledRenewalConfigurationItemSchema: Schema<ScheduledRenewalConfigurationItem> =
   s.object<ScheduledRenewalConfigurationItem>({
-    id: s.optional(s.number()),
-    subscriptionId: s.optional(s.number()),
-    subscriptionRenewalConfigurationId: s.optional(s.number()),
-    itemId: s.optional(s.number()),
+    id: s.optional(s.int()),
+    subscriptionId: s.optional(s.int()),
+    subscriptionRenewalConfigurationId: s.optional(s.int()),
+    itemId: s.optional(s.int()),
     itemType: s.optional(s.string()),
     itemSubclass: s.optional(s.string()),
-    pricePointId: s.optional(s.number()),
+    pricePointId: s.optional(s.int()),
     pricePointType: s.optional(s.string()),
-    quantity: s.optional(s.number()),
+    quantity: s.optional(s.int()),
     decimalQuantity: s.optional(s.string()),
     createdAt: s.optional(s.dateTime()),
     _keysMap: {

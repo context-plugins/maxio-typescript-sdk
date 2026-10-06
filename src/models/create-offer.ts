@@ -16,8 +16,8 @@ export const createOfferSchema: Schema<CreateOffer> = s.object<CreateOffer>({
   name: s.string(),
   handle: s.string(),
   description: s.optional(s.string()),
-  productId: s.number(),
-  productPricePointId: s.optional(s.number()),
+  productId: s.int(),
+  productPricePointId: s.optional(s.int()),
   components: s.optional(s.array(s.lazy(() => createOfferComponentSchema))),
   coupons: s.optional(s.array(s.string())),
   _keysMap: {

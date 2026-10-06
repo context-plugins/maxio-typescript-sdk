@@ -3,4 +3,4 @@ import type { Schema } from "../../core/validation/schema.js";
 
 export type UnitBalance = string | number;
 
-export const unitBalanceSchema: Schema<UnitBalance> = s.of<UnitBalance>(s.union([s.string(), s.number()]));
+export const unitBalanceSchema: Schema<UnitBalance> = s.of<UnitBalance>(s.union([s.string(), s.int()]));

@@ -12,14 +12,19 @@ export type ComponentCostData = {
   productId?: number;
   quantity?: string;
   amount?: string;
+  /**
+   * The identifier for the pricing scheme. See [Product
+   * Components](https://help.chargify.com/products/product-components.html) for an overview of
+   * pricing schemes.
+   */
   pricingScheme?: PricingScheme;
   tiers?: ComponentCostDataRateTier[];
 };
 
 export const componentCostDataSchema: Schema<ComponentCostData> = s.object<ComponentCostData>({
-  componentCodeId: s.optionalNullable(s.number()),
-  pricePointId: s.optional(s.number()),
-  productId: s.optional(s.number()),
+  componentCodeId: s.optionalNullable(s.int()),
+  pricePointId: s.optional(s.int()),
+  productId: s.optional(s.int()),
   quantity: s.optional(s.string()),
   amount: s.optional(s.string()),
   pricingScheme: s.optional(s.lazy(() => pricingSchemeSchema)),

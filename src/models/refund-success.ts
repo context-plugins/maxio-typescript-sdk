@@ -8,9 +8,9 @@ export type RefundSuccess = {
 };
 
 export const refundSuccessSchema: Schema<RefundSuccess> = s.object<RefundSuccess>({
-  refundId: s.number(),
-  gatewayTransactionId: s.number(),
-  productId: s.number(),
+  refundId: s.int(),
+  gatewayTransactionId: s.int(),
+  productId: s.int(),
   _keysMap: {
     refundId: "refund_id",
     gatewayTransactionId: "gateway_transaction_id",

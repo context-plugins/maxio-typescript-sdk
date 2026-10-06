@@ -9,7 +9,7 @@ export type UpdateProductPricePoint = {
 export const updateProductPricePointSchema: Schema<UpdateProductPricePoint> =
   s.object<UpdateProductPricePoint>({
     handle: s.optional(s.string()),
-    priceInCents: s.optional(s.number()),
+    priceInCents: s.optional(s.int()),
     _keysMap: {
       priceInCents: "price_in_cents",
     },
