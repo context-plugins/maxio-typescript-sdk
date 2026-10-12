@@ -120,7 +120,7 @@ export class MaxioClient {
 
   constructor(options: ClientOptions = {}) {
     this.#rawClient = new RawClient({
-      ...buildCoreClientOptions(options),
+      ...buildCoreClientOptions(options, "MAXIO_CLIENT_LOG"),
       defaultHeaders: [
         { name: "User-Agent", value: "MaxioClient/1.0.0 TypeScript", schema: s.string() },
         { name: "X-APIMatic-Lang", value: "TypeScript", schema: s.string() },

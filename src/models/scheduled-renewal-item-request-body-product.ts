@@ -1,14 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { itemType1Schema, type ItemType1 } from "./item-type1.js";
 import {
   scheduledRenewalProductPricePointSchema,
   type ScheduledRenewalProductPricePoint,
 } from "./scheduled-renewal-product-price-point.js";
 
 export type ScheduledRenewalItemRequestBodyProduct = {
-  /** Item type to add. Either Product or Component. */
-  itemType: ItemType1;
+  /** Item type to add. Either Product or Component. @default "Product" */
+  itemType?: "Product";
   /** Product or component identifier. */
   itemId: number;
   /** Price point identifier. */
@@ -21,7 +20,7 @@ export type ScheduledRenewalItemRequestBodyProduct = {
 
 export const scheduledRenewalItemRequestBodyProductSchema: Schema<ScheduledRenewalItemRequestBodyProduct> =
   s.object<ScheduledRenewalItemRequestBodyProduct>({
-    itemType: itemType1Schema,
+    itemType: s.defaulted(s.literal("Product"), "Product"),
     itemId: s.int(),
     pricePointId: s.optional(s.int()),
     quantity: s.optional(s.int()),
